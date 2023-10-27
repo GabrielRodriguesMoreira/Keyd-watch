@@ -141,14 +141,14 @@ export default function Live() {
             <div className={`w-full ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"} overflow-hidden rounded-md`}>
                 <iframe
                     className="w-full aspect-video rounded-md"
-                    src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=red-git-newstyle-gabrielrodriguesmoreira.vercel.app" type="text/html" allowFullScreen
+                    src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=pain-watch.vercel.app" type="text/html" allowFullScreen
                 ></iframe>
             </div>
 
             <div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-hidden ">
                 <iframe
                     className='w-full h-full min-h-[550px]'
-                    src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=red-git-newstyle-gabrielrodriguesmoreira.vercel.app" type="text/html"
+                    src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=pain-watch.vercel.app" type="text/html"
                 ></iframe>
             </div>
             <SideModal updateLiveId={updateLiveId} />
