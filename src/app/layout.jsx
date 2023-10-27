@@ -1,6 +1,6 @@
-
 import { Inter } from 'next/font/google'
 import './globals.css'
+import CanvasComponent from './componenets/canvabg'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
       <body className="bg-zinc-900">
 
         {children}
+      <CanvasComponent  />
 
       </body>
     </html>

@@ -90,9 +90,9 @@ export default function Live() {
                     <YouTube className='w-full h-full' iframeClassName='w-full h-full' videoId={liveId} opts={opts} onReady={onReady} />
                 </div>
             </div>
-            <div className="flex flex-wrap p-1 items-start justify-center lg:justify-between gap-2 lg:space-y-0 w-full row-start-10 col-span-9 rounded-md text-white lg:text-xl" >
+            <div className=" flex-wrap p-1 items-start justify-center lg:justify-between gap-2 lg:space-y-0 w-full row-start-10 col-span-9 text-white lg:text-xl hidden lg:flex" >
 
-                <div className='flex justify-center items-center space-x-1 cursor-pointer order-1 mr-10 lg:ml-0'>
+                <div className='flex justify-center items-center space-x-1 cursor-pointer order-1 mr-10 lg:ml-0 '>
                     <IconWithTooltip icon={<MdVolumeUp />} text="Mute" />
                     <input
                         type="range"
