@@ -24,9 +24,19 @@ export default function Live() {
         chatSelect.addEventListener('change', setChatCallBack);
         setChat(chatSelect.value);
 
+        
+        //selectChat
+        const currentchat = localStorage.getItem('currentchat');
+        if (currentchat) {
+            setChat(currentchat);
+        }
+        
+        
         return () => {
             chatSelect.removeEventListener('change', setChatCallBack);
         };
+
+
 
     }, []);
 
@@ -41,6 +51,7 @@ export default function Live() {
 
     const onReady = (event) => {
         setPlayer(event.target);
+        console.log(event.target);
     };
 
     const handleVolumeChange = (e) => {
@@ -109,14 +120,28 @@ export default function Live() {
     }
 
     function setChatCallBack(event) {
-        const selectedValue = event.target.value;
-        setChat(selectedValue);
+        const currentchat = event.target.value;
+    
+        // Check if the value already exists in local storage
+        const existingValue = localStorage.getItem('currentchat');
+    
+        // If it exists, replace it with the new selectedValue
+        if (existingValue) {
+            localStorage.setItem('currentchat', currentchat);
+        } else {
+            // If it doesn't exist, set the selectedValue in local storage
+            localStorage.setItem('currentchat', currentchat);
+        }
+    
+        // You can also update the state if needed
+        setChat(currentchat);
     }
+    
 
     return (
 
         <main className="flex flex-col w-full lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 p-1 lg:pl-4 gap-1 space-y-4 lg:space-y-0">
-            {(!player && <Loading />)}
+            {(!chat && <Loading />)}
             <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md overflow-hidden`} >
                 <div className='w-full rounded-md aspect-video overflow-hidden '>
                     {
