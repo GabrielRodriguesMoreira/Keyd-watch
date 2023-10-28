@@ -147,7 +147,7 @@ export default function Live() {
 
             <div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-hidden ">
                 <iframe
-                    className='w-full h-full min-h-[550px]'
+                    className='w-full h-full min-h-[550px] lg:min-h-0'
                     src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=pain-watch.vercel.app" type="text/html"
                 ></iframe>
             </div>
