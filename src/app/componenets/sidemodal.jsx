@@ -15,7 +15,8 @@ import {
     signOut,
 } from 'firebase/auth';
 
-export default function SideModal({ updateLiveId }) {
+import Link from 'next/link';
+export default function SideModal() {
 
     const [user, setUser] = useState(null)
     const [isOpen, setIsOpen] = useState(false)
@@ -121,12 +122,6 @@ export default function SideModal({ updateLiveId }) {
                     className={`h-full w-72 flex flex-col space-y-12 p-3 bg-gray-950 shadow-lg shadow-black`}
                 >
 
-                    <div className="w-full flex space-x-2 h-8">
-                        <input type="text" id="liveIdInput" className="live_input rounded-md w-full outline-0 p-2 font-bold" />
-                        <button onClick={sendLiveId} className="bg-red-700 rounded-md text-white p-2 items-center text-sm"><SiSololearn /> </button>
-                    </div>
-
-
                     {user ?
                         <div className="flex items-start justify-between font-bold text-lg border-b-2 border-gray-700 pb-3">
                             <div className="flex h-12 space-x-2">
@@ -147,12 +142,24 @@ export default function SideModal({ updateLiveId }) {
                         </button>
                     }
 
+                    <div >
+                        <select className="text-black" id="chatSelect" onChange={()=>{console.log(document.getElementById('chatSelect').value)}}>
+                            <option value="twitchChat">Twitch Chat</option>
+                            <option value="twitter">Twitter</option>
+                        </select>
+
+                    </div>
 
                     <nav className="flex flex-col justify-center gap-10">
-                        <a href="">Link 1</a>
-                        <a href="">Link 2</a>
-                        <a href="">Link 3</a>
-
+                        <Link href="/"> 
+                            <span>Home</span>
+                        </Link>
+                        <Link href="/live"> 
+                            <span>Live</span>
+                        </Link>
+                        <Link href="/profile"> 
+                            <span>Profile</span>
+                        </Link>
                     </nav>
 
                     <div className="w-10 ">
