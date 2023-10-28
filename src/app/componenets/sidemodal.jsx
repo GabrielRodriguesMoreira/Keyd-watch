@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react"
 import { initializeApp } from "firebase/app";
 import { BsChevronBarRight } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
-import { SiSololearn } from 'react-icons/si'
 import { BiLogOut } from 'react-icons/bi'
 import {
     GoogleAuthProvider,
@@ -74,13 +73,6 @@ export default function SideModal() {
         signOut(auth).then(() => {
         }).catch((error) => {
         });
-    }
-
-    function sendLiveId() {
-        const element = document.getElementById("liveIdInput")
-        const elementValue = element.value;
-        updateLiveId(elementValue.slice(-11));
-        element.value = '';
     }
 
     function toggleModal() {
@@ -173,9 +165,7 @@ export default function SideModal() {
                     <BsChevronBarRight className={isOpen ? "transform rotate-180" : ""} />
                 </button>
             </main>
-
-
-
+            
         </aside>
     )
 }

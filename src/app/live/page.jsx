@@ -5,7 +5,7 @@ import IconWithTooltip from '../componenets/iconwithtooltip';
 import { MdWifiTethering, MdVolumeUp, MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdPlayArrow, MdPause, MdSwapHoriz, MdFullscreen, MdOutlineSubtitles } from 'react-icons/md'
 import Cookies from 'js-cookie';
 import TwitterTimeline from '../componenets/twitter';
-import Loading from '../componenets/loading';
+import Loading from './loading';
 export default function Live() {
 
     const [swapScreen, setSwapScreen] = useState(false)
@@ -24,13 +24,11 @@ export default function Live() {
         chatSelect.addEventListener('change', setChatCallBack);
         setChat(chatSelect.value);
 
-        
         //selectChat
         const currentchat = localStorage.getItem('currentchat');
         if (currentchat) {
             setChat(currentchat);
         }
-        
         
         return () => {
             chatSelect.removeEventListener('change', setChatCallBack);
@@ -140,8 +138,7 @@ export default function Live() {
 
     return (
 
-        <main className="flex flex-col w-full lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 p-1 lg:pl-4 gap-1 space-y-4 lg:space-y-0">
-            {(!chat && <Loading />)}
+        <main className="flex flex-col w-full lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 p-2 lg:pl-4 gap-2 space-y-4 lg:space-y-0">
             <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md overflow-hidden`} >
                 <div className='w-full rounded-md aspect-video overflow-hidden '>
                     {
