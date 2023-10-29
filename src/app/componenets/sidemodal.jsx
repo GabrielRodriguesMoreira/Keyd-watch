@@ -45,6 +45,11 @@ export default function SideModal() {
             }
         });
 
+        const currentchat = localStorage.getItem('currentchat');
+        if (currentchat) {
+            document.getElementById("chatSelect").value = currentchat
+        }
+
         return () => {
             unsubscribe();
         };

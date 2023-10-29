@@ -29,12 +29,10 @@ export default function Live() {
         if (currentchat) {
             setChat(currentchat);
         }
-        
+
         return () => {
             chatSelect.removeEventListener('change', setChatCallBack);
         };
-
-
 
     }, []);
 
@@ -102,52 +100,65 @@ export default function Live() {
     };
 
     function sendLiveId() {
+        event.preventDefault();
+
         const element = document.getElementById("liveIdInput");
         const elementValue = element.value;
 
-        const youtubeLinkPattern = /^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$/;
+        const videoId = elementValue.slice(-11);
+        setliveId(videoId);
+        Cookies.set('liveIdCookie', videoId, { expires: 0.5 });
+        element.value = '';
 
-        if (youtubeLinkPattern.test(elementValue)) {
-            const videoId = elementValue.slice(-11);
-            setliveId(videoId);
-            Cookies.set('liveIdCookie', videoId, { expires: 0.5 });
-            element.value = '';
-        } else {
-            alert("Invalid link. Please enter a valid YouTube video link.");
-        }
     }
 
     function setChatCallBack(event) {
         const currentchat = event.target.value;
-    
-        // Check if the value already exists in local storage
+
         const existingValue = localStorage.getItem('currentchat');
-    
-        // If it exists, replace it with the new selectedValue
+
         if (existingValue) {
             localStorage.setItem('currentchat', currentchat);
         } else {
-            // If it doesn't exist, set the selectedValue in local storage
             localStorage.setItem('currentchat', currentchat);
         }
-    
-        // You can also update the state if needed
+
         setChat(currentchat);
     }
-    
+
 
     return (
 
         <main className="flex flex-col w-full lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 p-2 lg:pl-4 gap-2 space-y-4 lg:space-y-0">
-            <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md overflow-hidden`} >
-                <div className='w-full rounded-md aspect-video overflow-hidden '>
+            <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
+                <div className='w-full rounded-md aspect-video '>
                     {
                         liveId ?
                             <YouTube className='w-full h-full' iframeClassName='w-full h-full' videoId={liveId} opts={opts} onReady={onReady} />
                             :
-                            <div className="w-full h-full flex items-start justify-start space-x-2 text-black p-3">
-                                <input type="text" id="liveIdInput" className="live_input rounded-md w-full outline-0 p-2 font-bold " />
-                                <button onClick={sendLiveId} className="bg-red-700 rounded-md text-white p-2 items-center text-sm"><MdWifiTethering /> </button>
+                            <div className="w-full h-full relative flex  text-black p-3 pb-0" >
+                                <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.5)' }}></div>
+                                <div className='h-full w-fit'>
+                                    <img className='h-full object-scale-down' src="modelo.webp" alt="" />
+                                </div>
+                                <form onSubmit={sendLiveId} className='flex space-x-2 flex-1 h-10'>
+                                    <input
+                                        type="url"
+                                        pattern="^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$"
+                                        required
+                                        id="liveIdInput"
+                                        className="rounded-sm w-full p-2 font-bold outline-0"
+                                        placeholder='Cole o Link aqui Ex: https://www.youtube.com/watch?v=dWlwqkE3YGA&t'
+                                    />
+                                    <button type='submit' className="bg-red-700 rounded-sm text-white p-2 items-center text-lg">
+                                        <MdWifiTethering />
+                                    </button>
+                                </form>
+
+
+
+
+                                <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cec05074314395.5fee3376b0b81.jpg" alt="" />
                             </div>
                     }
 
@@ -211,7 +222,7 @@ export default function Live() {
                 ></iframe>
             </div>
 
-            < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-scroll ">
+            < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
                 {chat === 'twitchChat' ? (
                     <iframe
                         className='w-full h-full min-h-[550px] lg:min-h-0'

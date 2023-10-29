@@ -108,7 +108,7 @@ const CanvasComponent = () => {
     <canvas
       ref={canvasRef}
       style={{ opacity: opacity, transition: 'opacity 0.5s ease' }}
-      className="fixed top-0 left-0 -z-10"
+      className="fixed top-0 left-0 -z-50"
     />
   );
 };
