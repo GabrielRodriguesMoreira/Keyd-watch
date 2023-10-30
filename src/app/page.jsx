@@ -1,11 +1,9 @@
 
 
 export default function Home() {
-
   return (
-
-      <img src="modelo.webp" alt="" />
-
+    <main>
+      
+    </main>
   )
 }
-Home.displayName = 'Home';
