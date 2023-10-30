@@ -11,10 +11,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
-      <body className="bg-zinc-900">{children}</body>
-      <SideModal />
-      <CanvasComponent />
+
+      <body className="bg-zinc-900">
+        {children}
+        <SideModal />
+      </body>
+
     </html>
   )
 }
