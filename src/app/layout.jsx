@@ -1,6 +1,6 @@
 import './globals.css'
 import SideModal from './componenets/sidemodal'
-
+import CanvasComponent from './componenets/canvabg'
 
 export const metadata = {
   title: 'Pain Multi Stream',
@@ -8,9 +8,11 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="en">
-
+      <CanvasComponent />
       <body className="bg-zinc-900">
         {children}
         <SideModal />
