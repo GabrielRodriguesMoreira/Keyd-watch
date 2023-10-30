@@ -1,6 +1,5 @@
 import './globals.css'
 import SideModal from './componenets/sidemodal'
-import CanvasComponent from './componenets/canvabg'
 
 
 export const metadata = {
