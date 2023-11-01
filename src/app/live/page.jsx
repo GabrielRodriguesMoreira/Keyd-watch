@@ -1,7 +1,19 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import IconWithTooltip from '../componenets/iconwithtooltip'
-import { MdWifiTethering, MdVolumeUp, MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdPlayArrow, MdPause, MdSwapHoriz, MdFullscreen, MdOutlineSubtitles } from 'react-icons/md'
+import {
+    MdWifiTethering,
+    MdVolumeUp,
+    MdKeyboardArrowLeft,
+    MdKeyboardArrowRight,
+    MdKeyboardDoubleArrowLeft,
+    MdKeyboardDoubleArrowRight,
+    MdPlayArrow,
+    MdPause,
+    MdSwapHoriz,
+    MdFullscreen,
+    MdOutlineSubtitles
+} from 'react-icons/md'
 
 import YouTube from 'react-youtube';
 
@@ -77,13 +89,13 @@ export default function Live() {
     const [inputValue, setInputValue] = useState('');
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-      };
-    
-      const handleSubmit = (e) => {
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         setliveId(inputValue.slice(-11))
         setInputValue('');
-      };
+    };
 
     return (
         <main className="w-full flex flex-col p-2 space-y-4 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4 lg:space-y-0">
@@ -92,7 +104,10 @@ export default function Live() {
             <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
                 {
                     liveId ?
-                        <YouTube className='w-full h-full' iframeClassName='w-full h-full' videoId={liveId} opts={opts} onReady={onReady} />
+                        <div className='w-full h-full rounded-md aspect-video overflow-hidden'>
+                            <YouTube iframeClassName='w-full h-full aspect-video ' videoId={liveId} opts={opts} onReady={onReady} />
+                        </div>
+
                         :
                         <div className="w-full h-full relative flex  text-black p-3 pb-0" >
                             <div className='h-full w-fit'>
@@ -185,4 +200,3 @@ export default function Live() {
         </main>
     )
 }
-//pain-watch.vercel.app
