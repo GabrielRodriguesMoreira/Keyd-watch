@@ -109,11 +109,8 @@ export default function Live() {
                         </div>
 
                         :
-                        <div className="w-full h-full relative flex  text-black p-3 pb-0" >
-                            <div className='h-full w-fit'>
-                                <img className='h-full object-scale-down' src="modelo.webp" alt="" />
-                            </div>
-                            <form className='flex space-x-2 flex-1 h-10' onSubmit={handleSubmit}>
+                        <div className="w-full h-full relative flex flex-col items-center  text-black p-3 pb-0" >
+                            <form className='flex space-x-2 h-10 w-full' onSubmit={handleSubmit}>
                                 <input
                                     type="url"
                                     pattern="^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$"
@@ -126,7 +123,8 @@ export default function Live() {
                                     <MdWifiTethering />
                                 </button>
                             </form>
-                            <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cec05074314395.5fee3376b0b81.jpg" alt="" />
+                            <h1 className= 'text-white text-3xl mt-5'>Caso não carregue automaticamente cole o link da live acima</h1>
+                            <im g className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cec05074314395.5fee3376b0b81.jpg" alt="" />
                         </div>
                 }
             </div>
