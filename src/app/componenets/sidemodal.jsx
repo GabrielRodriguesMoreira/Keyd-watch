@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react"
 import { BsChevronBarRight } from 'react-icons/bs'
-import { MdWifiTethering } from 'react-icons/md'
+import { MdWifiTethering, MdHomeFilled, MdLiveTv, MdCardTravel } from 'react-icons/md'
 import Link from 'next/link';
 import { useSideModal } from "./contextprovider";
 
@@ -33,7 +33,7 @@ export default function SideModal() {
     return (
         <aside className="fixed h-full w-full lg:w-0 top-0">
             <main className={`fixed h-full flex top-0 items-center text-white ${isOpen ? "left-[0]" : "-left-72"} transition-all`}>
-                <section className={`h-full w-72 flex flex-col space-y-12 p-3 bg-zinc-950 shadow-lg shadow-black`}>
+                <section className={`h-full w-72 flex flex-col justify-between p-3 bg-zinc-950 shadow-lg shadow-black`}>
                     <form className='flex space-x-2 h-10 w-full text-black' onSubmit={handleSubmit}>
                         <input
                             type="url"
@@ -47,25 +47,24 @@ export default function SideModal() {
                             <MdWifiTethering />
                         </button>
                     </form>
-                    <div>
-                        <select className="text-black">
-                            <option value="twitchChat">Twitch Chat</option>
-                            <option value="twitter">Twitter</option>
-                        </select>
-                    </div>
+
+                    <select className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-500 outline-none">
+                        <option value="twitchChat">Twitch Chat</option>
+                        <option value="twitter">Cooming Soon</option>
+                    </select>
                     <nav className="flex flex-col justify-center gap-10">
-                        <Link href="/">
-                            <span>Home</span>
+                        <Link href="/" >
+                             <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdHomeFilled /> <p>Home</p></span>
                         </Link>
                         <Link href="/live">
-                            <span>Live</span>
+                        <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdLiveTv /> <p>Live</p></span>
                         </Link>
                         <Link href="/profile">
-                            <span>Profile</span>
+                        <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdCardTravel /> <p>Cartinhas</p></span>
                         </Link>
                     </nav>
                     <div className="w-10">
-                        <img src="painlogo.png" className="object-scale-down" alt="" />
+                        <img src="keydlogo.webp" className="object-scale-down" alt="" />
                     </div>
                 </section>
                 <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-purple-500 transition-all hidden lg:block rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-30 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
@@ -73,5 +72,6 @@ export default function SideModal() {
                 </button>
             </main>
         </aside>
+
     )
 }

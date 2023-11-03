@@ -97,7 +97,7 @@ export default function Live() {
                         </div>
                         :
                         <div className="w-full h-full relative flex flex-col items-center  text-black p-3 pb-0" >
-                            <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cec05074314395.5fee3376b0b81.jpg" alt="" />
+                            <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/730e5978683509.5cc559edb972f.png" alt="" />
                         </div>
                 }
             </div>
