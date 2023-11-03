@@ -67,7 +67,7 @@ export default function SideModal() {
                         <img src="keydlogo.webp" className="object-scale-down" alt="" />
                     </div>
                 </section>
-                <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-purple-500 transition-all hidden lg:block rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-30 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
+                <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-purple-500 transition-all hidden lg:block rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-50 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
                     <BsChevronBarRight className={isOpen ? "transform rotate-180" : ""} />
                 </button>
             </main>

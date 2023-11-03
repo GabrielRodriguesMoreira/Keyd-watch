@@ -154,7 +154,7 @@ export default function Live() {
             <div className={` w-full  overflow-hidden rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
                 <iframe
                     className="w-full aspect-video relative rounded-md"
-                    src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=pain-watch.vercel.app" type="text/html" allowFullScreen
+                    src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
                 >
                     <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.6)' }}></div>
                 </iframe>
@@ -164,7 +164,7 @@ export default function Live() {
             < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
                 <iframe
                     className='w-full h-full min-h-[500px] lg:min-h-0'
-                    src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=pain-watch.vercel.app"
+                    src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=keyd-watch.vercel.app"
                     type="text/html"
                 ></iframe>
             </div>
