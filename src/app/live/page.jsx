@@ -1,8 +1,7 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import IconWithTooltip from '../componenets/iconwithtooltip'
 import {
-    MdWifiTethering,
     MdVolumeUp,
     MdKeyboardArrowLeft,
     MdKeyboardArrowRight,
@@ -14,22 +13,22 @@ import {
     MdFullscreen,
     MdOutlineSubtitles
 } from 'react-icons/md'
-
+import { useSideModal } from '../componenets/contextprovider'
 import YouTube from 'react-youtube';
 
 export default function Live() {
 
     const [swapScreen, setSwapScreen] = useState(false)
-    const [liveId, setliveId] = useState(null)
     const [player, setPlayer] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const { liveId } = useSideModal();
 
     const opts = {
         playerVars: {
             autoplay: 1,
             controls: 0,
             cc_load_policy: 1,
-            cc_lang_pref: 'en',
+            cc_lang_pref: 'pt-BR',
         },
     };
 
@@ -86,17 +85,6 @@ export default function Live() {
         }
     };
 
-    const [inputValue, setInputValue] = useState('');
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setliveId(inputValue.slice(-11))
-        setInputValue('');
-    };
-
     return (
         <main className="w-full flex flex-col p-2 space-y-4 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4 lg:space-y-0">
 
@@ -105,26 +93,11 @@ export default function Live() {
                 {
                     liveId ?
                         <div className='w-full h-full rounded-md aspect-video overflow-hidden'>
-                            <YouTube iframeClassName='w-full h-full aspect-video ' videoId={liveId} opts={opts} onReady={onReady} />
+                            <YouTube iframeClassName='w-full h-full aspect-video' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
-
                         :
                         <div className="w-full h-full relative flex flex-col items-center  text-black p-3 pb-0" >
-                            <form className='flex space-x-2 h-10 w-full' onSubmit={handleSubmit}>
-                                <input
-                                    type="url"
-                                    pattern="^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$"
-                                    required
-                                    className="rounded-sm w-full p-2 font-bold outline-0"
-                                    onChange={handleInputChange}
-                                    placeholder='Cole o Link aqui Ex: https://www.youtube.com/watch?v=dWlwqkE3YGA&t'
-                                />
-                                <button type='submit' className="bg-red-700 rounded-sm text-white p-2 items-center text-lg">
-                                    <MdWifiTethering />
-                                </button>
-                            </form>
-                            <h1 className= 'text-white text-3xl mt-5'>Caso não carregue automaticamente cole o link da live acima</h1>
-                            <im g className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cec05074314395.5fee3376b0b81.jpg" alt="" />
+                            <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/cec05074314395.5fee3376b0b81.jpg" alt="" />
                         </div>
                 }
             </div>
@@ -198,3 +171,4 @@ export default function Live() {
         </main>
     )
 }
+//pain-watch.vercel.app

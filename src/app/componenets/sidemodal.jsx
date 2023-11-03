@@ -1,21 +1,52 @@
 'use client'
 import React, { useState } from "react"
 import { BsChevronBarRight } from 'react-icons/bs'
+import { MdWifiTethering } from 'react-icons/md'
 import Link from 'next/link';
-
-// Import React, useState, and other necessary dependencies
+import { useSideModal } from "./contextprovider";
 
 export default function SideModal() {
     const [isOpen, setIsOpen] = useState(false);
+    const { setLiveId } = useSideModal();
 
     function toggleModal() {
         setIsOpen(!isOpen);
     }
 
+    const [inputValue, setInputValue] = useState('');
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault();
+        const match = inputValue.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+
+        if (match) {
+            const videoId = match[1];
+            setLiveId(videoId);
+            setInputValue('');
+        }
+    };
+
     return (
         <aside className="fixed h-full w-full lg:w-0 top-0">
             <main className={`fixed h-full flex top-0 items-center text-white ${isOpen ? "left-[0]" : "-left-72"} transition-all`}>
-                <section className={`h-full w-72 flex flex-col space-y-12 p-3 bg-gray-950 shadow-lg shadow-black`}>
+                <section className={`h-full w-72 flex flex-col space-y-12 p-3 bg-zinc-950 shadow-lg shadow-black`}>
+                    <form className='flex space-x-2 h-10 w-full text-black' onSubmit={handleSubmit}>
+                        <input
+                            type="url"
+                            pattern="^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$"
+                            required
+                            className="rounded-sm w-full p-2 font-bold outline-0"
+                            onChange={handleInputChange}
+                            placeholder='Cole o Link aqui Ex: https://www.youtube.com/watch?v=dWlwqkE3YGA&t'
+                        />
+                        <button type='submit' className="bg-purple-500 rounded-sm text-white p-2 px-4 items-center text-lg">
+                            <MdWifiTethering />
+                        </button>
+                    </form>
                     <div>
                         <select className="text-black">
                             <option value="twitchChat">Twitch Chat</option>
@@ -23,31 +54,21 @@ export default function SideModal() {
                         </select>
                     </div>
                     <nav className="flex flex-col justify-center gap-10">
-                        <Link href="/"> 
+                        <Link href="/">
                             <span>Home</span>
                         </Link>
-                        <Link href="/live"> 
+                        <Link href="/live">
                             <span>Live</span>
                         </Link>
-                        <Link href="/profile"> 
+                        <Link href="/profile">
                             <span>Profile</span>
                         </Link>
                     </nav>
-                    <div className="twitter-feed text-white">
-                        <iframe
-                            title="Twitter Feed"
-                            src="https://twitter.com/home?&amp;parent=twitter.com&amp;parent=pain-watch.vercel.app"
-                            type="text/html"
-                            width="100%"
-                            height="400"
-                            style={{ border: "none" }}
-                        />
-                    </div>
                     <div className="w-10">
                         <img src="painlogo.png" className="object-scale-down" alt="" />
                     </div>
                 </section>
-                <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-red-700 transition-all hidden lg:block rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-30 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
+                <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-purple-500 transition-all hidden lg:block rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-30 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
                     <BsChevronBarRight className={isOpen ? "transform rotate-180" : ""} />
                 </button>
             </main>
