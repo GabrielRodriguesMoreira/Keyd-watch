@@ -15,6 +15,7 @@ import {
 } from 'react-icons/md'
 import { useSideModal } from '../componenets/contextprovider'
 import YouTube from 'react-youtube';
+import TwitterTimeline from '../componenets/twittertimeline'
 
 export default function Live() {
 
@@ -22,13 +23,14 @@ export default function Live() {
     const [player, setPlayer] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const { liveId } = useSideModal();
+    const { acompanhamento } = useSideModal();
 
     const opts = {
         playerVars: {
-          autoplay: 1,
-          controls: 0,
+            autoplay: 1,
+            controls: 0,
         },
-      };
+    };
 
     const onReady = (event) => {
         setPlayer(event.target);
@@ -160,11 +162,16 @@ export default function Live() {
 
             {/* Chat */}
             < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
-                <iframe
-                    className='w-full h-full min-h-[500px] lg:min-h-0'
-                    src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=keyd-watch.vercel.app"
-                    type="text/html"
-                ></iframe>
+                {acompanhamento === 'twitchChat' && (
+                    <iframe
+                        className='w-full h-full min-h-[500px] lg:min-h-0'
+                        src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=keyd-watch.vercel.app"
+                        type="text/html"
+                    ></iframe>
+                )}
+                {acompanhamento === 'twitter' && (
+                    <TwitterTimeline />
+                )}
             </div>
         </main>
     )

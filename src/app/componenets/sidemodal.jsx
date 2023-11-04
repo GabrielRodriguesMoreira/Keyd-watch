@@ -4,16 +4,19 @@ import { BsChevronBarRight } from 'react-icons/bs'
 import { MdWifiTethering, MdHomeFilled, MdLiveTv, MdListAlt } from 'react-icons/md'
 import Link from 'next/link';
 import { useSideModal } from "./contextprovider";
+import Cookies from 'js-cookie';
 
 export default function SideModal() {
     const [isOpen, setIsOpen] = useState(false);
     const { setLiveId } = useSideModal();
+    const { acompanhamento, setAcompanhamento } = useSideModal();
 
     function toggleModal() {
         setIsOpen(!isOpen);
     }
 
     const [inputValue, setInputValue] = useState('');
+
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
@@ -26,12 +29,19 @@ export default function SideModal() {
         if (match) {
             const videoId = match[1];
             setLiveId(videoId);
-            setInputValue('');
+            Cookies.set('videoIdCookie', videoId, { expires: 0.5 });
         }
+        setInputValue(' ');
     };
 
+    const toggleAcompanhamento = (e) => {
+        console.log(e.target.value)
+        setAcompanhamento(e.target.value)
+        Cookies.set('acompanhamentoCookie', e.target.value);
+    }
+
     return (
-        <aside className={` fixed h-full w-80 flex items-center ${isOpen ? "left-[0]" : "-left-72"} transition-all`}>
+        <aside className={` fixed h-full top-0 w-80 flex items-center ${isOpen ? "left-[0]" : "-left-72"} transition-all`}>
             <section className={`h-full w-72 flex flex-col justify-between p-3 bg-zinc-950 shadow-lg shadow-black`}>
 
                 {/* Input busca live */}
@@ -74,9 +84,9 @@ export default function SideModal() {
                 </nav>
 
                 {/* Select de Troca chat */}
-                <select className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-800 outline-none">
+                <select value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-800 outline-none">
                     <option value="twitchChat">Twitch Chat</option>
-                    <option value="twitter">Cooming Soon</option>
+                    <option value="twitter">Twitter</option>
                 </select>
 
                 {/* Logo */}
