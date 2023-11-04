@@ -104,10 +104,11 @@ export default function Live() {
             </div>
 
             {/* Controles */}
-            <div className=" w-full py-1 px-2 gap-2 items-start justify-center row-start-10 col-span-9 text-white hidden lg:justify-between lg:space-y-0 lg:text-xl  lg:flex" >
-                <div className='flex justify-center items-center space-x-1 cursor-pointer order-1 mr-10 lg:ml-0 group'>
-                    <button onClick={() => { document.getElementById("range_input").value = 0 }}>
-                        <IconWithTooltip icon={<MdVolumeUp />} text="volume" />
+            <div className=" w-full items-start row-start-10 col-span-9 text-white  justify-between text-xl flex" >
+                
+                <div className='flex w- justify-center items-center space-x-1 cursor-pointer order-1 w-36 overflow-hidden group'>
+                    <button  onClick={() => { document.getElementById("range_input").value = 0 }}>
+                        <IconWithTooltip icon={<MdVolumeUp />} text="volume"  />
                     </button>
                     <input
                         type="range"
@@ -115,10 +116,11 @@ export default function Live() {
                         max="100"
                         step="1"
                         id='range_input'
-                        className='range_input_style lg:opacity-0 group-hover:opacity-100'
+                        className='range_input_style lg:opacity-0 group-hover:opacity-100 w-28'
                         onChange={handleVolumeChange}
                     />
                 </div>
+                
                 <div className='text-xl lg:text-3xl space-x-4 lg:order-2'>
                     <button onClick={() => seekTime(-5)}>
                         <IconWithTooltip icon={<MdKeyboardDoubleArrowLeft />} text="Rewind -5" />
@@ -138,7 +140,7 @@ export default function Live() {
                         <IconWithTooltip icon={<MdKeyboardDoubleArrowRight />} text="Forward +5" />
                     </button>
                 </div>
-                <div className='space-x-4 order-3'>
+                <div className='space-x-4 order-3 w-36 flex justify-end '>
                     <button onClick={toggleFullScreen}>
                         <IconWithTooltip icon={<MdFullscreen />} text="Full Screen" />
                     </button>

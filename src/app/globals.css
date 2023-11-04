@@ -10,7 +10,6 @@
 .range_input_style {
   height: 2px;
   cursor: pointer;
-  background: red;
   outline: none;
   border: none;
   
@@ -33,3 +32,4 @@ background-color: #999999;
   border-radius: 15px;
 background-color: #383838;
 }
+
