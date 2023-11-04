@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react"
 import { BsChevronBarRight } from 'react-icons/bs'
-import { MdWifiTethering, MdHomeFilled, MdLiveTv, MdCardTravel } from 'react-icons/md'
+import { MdWifiTethering, MdHomeFilled, MdLiveTv, MdListAlt } from 'react-icons/md'
 import Link from 'next/link';
 import { useSideModal } from "./contextprovider";
 
@@ -33,7 +33,7 @@ export default function SideModal() {
     return (
         <aside className="fixed h-full w-full lg:w-0 top-0">
             <main className={`fixed h-full flex top-0 items-center text-white ${isOpen ? "left-[0]" : "-left-72"} transition-all`}>
-                <section className={`h-full w-72 flex flex-col justify-between p-3 bg-zinc-950 shadow-lg shadow-black`}>
+                <section className={`h-full w-72 flex flex-col justify-between   p-3 bg-zinc-950 shadow-lg shadow-black`}>
                     <form className='flex space-x-2 h-10 w-full text-black' onSubmit={handleSubmit}>
                         <input
                             type="url"
@@ -41,28 +41,39 @@ export default function SideModal() {
                             required
                             className="rounded-sm w-full p-2 font-bold outline-0"
                             onChange={handleInputChange}
+                            value={inputValue}
                             placeholder='Cole o Link aqui Ex: https://www.youtube.com/watch?v=dWlwqkE3YGA&t'
                         />
                         <button type='submit' className="bg-purple-500 rounded-sm text-white p-2 px-4 items-center text-lg">
                             <MdWifiTethering />
                         </button>
                     </form>
+                    <div onClick={() => { window.open('https://www.youtube.com/@CBLOL', '_blank') }} className="w-full rounded-full cursor-pointer flex items-center gap-2 p-2 bg-zinc-900 hover:bg-zinc-800">
+                        <img
+                            src="https://d5xydlzdo08s0.cloudfront.net/media/celebrities/17518/cblollogosymboloffwhite300x300__L.jpg"
+                            className="w-7 h-7   rounded-full object-cover"
+                            alt="CBLOL Channel Logo"
+                        />
+                        <p className="text-white text-md font-bold">CBLOL Channel</p>
+                    </div>
+
+                    <nav className="flex flex-col justify-center gap-10">
+                        <Link href="/" >
+                            <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdHomeFilled /> <p>Home</p></span>
+                        </Link>
+                        <Link href="/live">
+                            <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdLiveTv /> <p>Live</p></span>
+                        </Link>
+                        <Link href="/tabela">
+                            <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdListAlt /> <p>Tabela</p></span>
+                        </Link>
+                    </nav>
 
                     <select className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-500 outline-none">
                         <option value="twitchChat">Twitch Chat</option>
                         <option value="twitter">Cooming Soon</option>
                     </select>
-                    <nav className="flex flex-col justify-center gap-10">
-                        <Link href="/" >
-                             <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdHomeFilled /> <p>Home</p></span>
-                        </Link>
-                        <Link href="/live">
-                        <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdLiveTv /> <p>Live</p></span>
-                        </Link>
-                        <Link href="/profile">
-                        <span className="text-2xl text-white hover:text-purple-500 flex items-center space-x-2"><MdCardTravel /> <p>Cartinhas</p></span>
-                        </Link>
-                    </nav>
+
                     <div className="w-10">
                         <img src="keydlogo.webp" className="object-scale-down" alt="" />
                     </div>
@@ -72,6 +83,5 @@ export default function SideModal() {
                 </button>
             </main>
         </aside>
-
     )
 }

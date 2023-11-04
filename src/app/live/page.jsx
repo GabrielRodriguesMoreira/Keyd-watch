@@ -25,16 +25,13 @@ export default function Live() {
 
     const opts = {
         playerVars: {
-            autoplay: 1,
-            controls: 0,
-            cc_load_policy: 1,
-            cc_lang_pref: 'pt-BR',
+          autoplay: 1,
+          controls: 0,
         },
-    };
+      };
 
     const onReady = (event) => {
         setPlayer(event.target);
-        console.log(event.target);
     };
 
     const handleVolumeChange = (e) => {
@@ -92,12 +89,14 @@ export default function Live() {
             <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
                 {
                     liveId ?
-                        <div className='w-full h-full rounded-md aspect-video overflow-hidden'>
+                        <div className='w-full relative rounded-md aspect-video overflow-hidden'>
+                            <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                             <YouTube iframeClassName='w-full h-full aspect-video' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
                         :
                         <div className="w-full h-full relative flex flex-col items-center  text-black p-3 pb-0" >
-                            <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' style={{ filter: 'blur(5px)' }} src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/730e5978683509.5cc559edb972f.png" alt="" />
+                            <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
+                            <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a014f78683509.5cc559ebcfd32.png" alt="" />
                         </div>
                 }
             </div>
@@ -156,7 +155,6 @@ export default function Live() {
                     className="w-full aspect-video relative rounded-md"
                     src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
                 >
-                    <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.6)' }}></div>
                 </iframe>
             </div>
 
@@ -171,4 +169,4 @@ export default function Live() {
         </main>
     )
 }
-//pain-watch.vercel.app
+//keyd-watch.vercel.app
