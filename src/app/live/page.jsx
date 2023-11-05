@@ -165,7 +165,7 @@ export default function Live() {
             </div>
 
             {/* Chat */}
-            < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto overflow-x-hidden">
+            < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
                 {acompanhamento === 'twitchChat' && (
                     <iframe
                         className='w-full h-full min-h-[500px] lg:min-h-0'
@@ -173,25 +173,17 @@ export default function Live() {
                         type="text/html"
                     ></iframe>
                 )}
+                {acompanhamento === 'estatisticas' && (
+                    <iframe className='w-full h-full' src='https://aureom.github.io/live-lol-esports/#/'></iframe>
+
+                )}
                 {acompanhamento === 'termo' && (
                     <iframe className='w-full h-full' src='https://term.ooo/'></iframe>
                 )}
-                {acompanhamento === 'snake' && (
-                    <div className='w-full h-full flex flex-col'>
-                        <div className='bg-black text-white font-sans font-semibold text-center'> <button onClick={muteIframe}>Click</button> Sans battle foi Feito por Jcw87, Acesse a steam dele <a target="_blank" className='text-blue-500' href='https://steamcommunity.com/id/Jcw87/'>clicando aqui</a></div>
-                        <iframe id="muted" muted className='w-full h-full' src='https://jcw87.github.io/c2-sans-fight/'></iframe>
-                    </div>
-                )}
+
             </div>
         </main>
     )
-
-    function muteIframe() {
-        var iframe = document.querySelector('iframe[src="https://jcw87.github.io/c2-sans-fight/"]');
-        // This code could probably be tidied up, depending on how familiar you are with the game code
-        iframe.contentWindow.speaker[0].muted = true
-        iframe.contentWindow.speaker[1].muted = true
-    }
 
 }
 //keyd-watch.vercel.app

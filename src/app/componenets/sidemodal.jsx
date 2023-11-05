@@ -70,23 +70,24 @@ export default function SideModal() {
                 </div>
 
                 {/* Links de navegação */}
-                <nav className="flex flex-col justify-center gap-10 py-14 ">
+                <nav className="flex flex-col justify-center gap-10 py-10 ">
                     <Link href="/" >
-                        <span className="text-2xl text-white hover:text-purple-800 flex items-center space-x-2"><MdHomeFilled /> <p>Home</p></span>
+                        <span className=" w-fit py-1 px-3 rounded-full text-2xl text-white hover:text-purple-800 hover:bg-white hover:ml-6 flex items-center space-x-2 transition-all duration-300"><MdHomeFilled /> <p>Home</p></span>
                     </Link>
                     <Link href="/live">
-                        <span className="text-2xl text-white hover:text-purple-800 flex items-center space-x-2"><MdLiveTv /> <p>Live</p></span>
+                        <span className=" w-fit py-1 px-3 rounded-full text-2xl text-white hover:text-purple-800 hover:bg-white hover:ml-6 flex items-center space-x-2 transition-all duration-300"><MdLiveTv /> <p>Live</p></span>
                     </Link>
                     <Link href="/tabela">
-                        <span className="text-2xl text-white hover:text-purple-800 flex items-center space-x-2"><MdListAlt /> <p>Tabela</p></span>
+                        <span className=" w-fit py-1 px-3 rounded-full text-2xl text-white hover:text-purple-800 hover:bg-white hover:ml-6 flex items-center space-x-2 transition-all duration-300"><MdListAlt /> <p>Tabela</p></span>
                     </Link>
                 </nav>
 
                 {/* Select de Troca chat */}
                 <select value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-800 outline-none">
                     <option value="twitchChat">Twitch Chat</option>
+                    <option value="estatisticas">Estatisticas</option>
                     <option value="termo">Termo</option>
-                    <option value="snake">Snake</option>
+
                 </select>
 
                 {/* Logo */}
@@ -96,7 +97,7 @@ export default function SideModal() {
             </section>
 
             {/* Botão abrir a sidebar */}
-            <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-purple-800 transition-all hidden lg:block rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-50 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
+            <button onClick={toggleModal} className={`h-32 w-8 text-white text-3xl bg-purple-800 transition-all  rounded-tr-md rounded-br-md ${isOpen ? "" : "opacity-50 transform -translate-x-4 hover:translate-x-0 hover:opacity-100"}`}>
                 <BsChevronBarRight className={isOpen ? "transform rotate-180" : ""} />
             </button>
 
