@@ -16,7 +16,6 @@ export default function SideModal() {
     }
 
     const [inputValue, setInputValue] = useState('');
-
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
     };
@@ -45,18 +44,18 @@ export default function SideModal() {
             <section className={`h-full w-72 flex flex-col justify-between p-3 bg-zinc-950 shadow-lg shadow-black`}>
 
                 {/* Input busca live */}
-                <form className='flex space-x-2 h-10 w-full text-black' onSubmit={handleSubmit}>
+                <form className='flex space-x-2 h-10 w-full text-white' onSubmit={handleSubmit}>
                     <input
                         type="url"
                         pattern="^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[A-Za-z0-9_-]{11}$"
                         required
-                        className="rounded-sm w-full p-2 font-bold outline-0"
+                        className="rounded-sm w-full p-2 font-bold outline-0 bg-transparent border-2 border-purple-800"
                         onChange={handleInputChange}
                         value={inputValue}
                         placeholder='Cole o Link aqui Ex: https://www.youtube.com/watch?v=dWlwqkE3YGA&t'
                     />
-                    <button type='submit' className="bg-purple-800 rounded-sm text-white p-2 px-4 items-center text-lg">
-                        <MdWifiTethering />
+                    <button type='submit' className="bg-purple-800 rounded-sm p-2 items-center text-xl">
+                        <MdWifiTethering     />
                     </button>
                 </form>
 
@@ -71,7 +70,7 @@ export default function SideModal() {
                 </div>
 
                 {/* Links de navegação */}
-                <nav className="flex flex-col justify-center gap-10 py-10 ">
+                <nav className="flex flex-col justify-center gap-10 py-14 ">
                     <Link href="/" >
                         <span className="text-2xl text-white hover:text-purple-800 flex items-center space-x-2"><MdHomeFilled /> <p>Home</p></span>
                     </Link>
@@ -86,7 +85,8 @@ export default function SideModal() {
                 {/* Select de Troca chat */}
                 <select value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-800 outline-none">
                     <option value="twitchChat">Twitch Chat</option>
-                    <option value="twitter">Twitter</option>
+                    <option value="termo">Termo</option>
+                    <option value="snake">Snake</option>
                 </select>
 
                 {/* Logo */}

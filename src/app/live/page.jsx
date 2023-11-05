@@ -15,7 +15,6 @@ import {
 } from 'react-icons/md'
 import { useSideModal } from '../componenets/contextprovider'
 import YouTube from 'react-youtube';
-import TwitterTimeline from '../componenets/twittertimeline'
 
 export default function Live() {
 
@@ -84,6 +83,9 @@ export default function Live() {
         }
     };
 
+
+
+
     return (
         <main className="w-full flex flex-col p-2 space-y-4 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4 lg:space-y-0">
 
@@ -105,10 +107,10 @@ export default function Live() {
 
             {/* Controles */}
             <div className=" w-full items-start row-start-10 col-span-9 text-white  justify-between text-xl flex" >
-                
+
                 <div className='flex w- justify-center items-center space-x-1 cursor-pointer order-1 w-36 overflow-hidden group'>
-                    <button  onClick={() => { document.getElementById("range_input").value = 0 }}>
-                        <IconWithTooltip icon={<MdVolumeUp />} text="volume"  />
+                    <button onClick={() => { document.getElementById("range_input").value = 0 }}>
+                        <IconWithTooltip icon={<MdVolumeUp />} text="volume" />
                     </button>
                     <input
                         type="range"
@@ -120,7 +122,7 @@ export default function Live() {
                         onChange={handleVolumeChange}
                     />
                 </div>
-                
+
                 <div className='text-xl lg:text-3xl space-x-4 lg:order-2'>
                     <button onClick={() => seekTime(-5)}>
                         <IconWithTooltip icon={<MdKeyboardDoubleArrowLeft />} text="Rewind -5" />
@@ -171,11 +173,28 @@ export default function Live() {
                         type="text/html"
                     ></iframe>
                 )}
-                {acompanhamento === 'twitter' && (
-                    <TwitterTimeline />
+                {acompanhamento === 'termo' && (
+                    <iframe className='w-full h-full' src='https://term.ooo/'></iframe>
+                )}
+                {acompanhamento === 'snake' && (
+                    <>
+                        <button onClick={muteIframe} className='w-20 h-20 bg-green-600'>Click</button>
+                        <iframe id="myFrame" className='w-full h-full' src='https://jcw87.github.io/c2-sans-fight/'></iframe>
+                    </>
+
                 )}
             </div>
         </main>
     )
+
+    function muteIframe() {
+        const iframe = document.getElementById('myFrame');
+        const iframeContent = iframe.contentDocument || iframe.contentWindow.document;
+        const videoElement = iframeContent.getElementById('videoElementId'); // Replace with the actual ID of your video element
+    
+        if (videoElement) {
+            videoElement.muted = true;
+        }
+    }
 }
 //keyd-watch.vercel.app
