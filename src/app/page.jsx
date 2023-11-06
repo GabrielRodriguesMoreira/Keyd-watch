@@ -15,7 +15,7 @@ const Home = () => {
       <img
         src="knight.webp"
         alt="Homepage Image"
-        className="w-auto h-48 mb-4 lg:h-96"
+        className="w-auto h-72 mb-4 lg:h-96"
       />
     </div>
   );

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import IconWithTooltip from '../componenets/iconwithtooltip'
 import {
     MdVolumeUp,
@@ -21,15 +21,22 @@ export default function Live() {
     const [swapScreen, setSwapScreen] = useState(false)
     const [player, setPlayer] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isMobile, setIsMobile] = useState(0);
     const { liveId } = useSideModal();
     const { acompanhamento } = useSideModal();
 
     const opts = {
         playerVars: {
             autoplay: 1,
-            controls: 0,
+            controls: isMobile,
         },
     };
+
+    useEffect(()=>{
+        if(window.innerWidth <= 700){
+            setIsMobile(1)
+        };
+    },[])
 
     const onReady = (event) => {
         setPlayer(event.target);
@@ -84,10 +91,8 @@ export default function Live() {
     };
 
 
-
-
     return (
-        <main className="w-full flex flex-col p-2 space-y-4 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4 lg:space-y-0">
+        <main className="w-full flex flex-col lg:p-2 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4 lg:space-y-0">
 
             {/* Live do Youtube */}
             <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
@@ -98,7 +103,7 @@ export default function Live() {
                             <YouTube iframeClassName='w-full h-full aspect-video' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
                         :
-                        <div className="w-full h-full relative flex flex-col items-center  text-black p-3 pb-0" >
+                        <div className="w-full h-full relative flex flex-col items-center aspect-video text-black p-3 pb-0" >
                             <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                             <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a014f78683509.5cc559ebcfd32.png" alt="" />
                         </div>
@@ -106,7 +111,7 @@ export default function Live() {
             </div>
 
             {/* Controles */}
-            <div className=" w-full items-start row-start-10 col-span-9 text-white  justify-between text-xl flex" >
+            <div className=" w-full items-start row-start-10 col-span-9 text-white  justify-between text-xl  hidden lg:flex" >
 
                 <div className='flex w- justify-center items-center space-x-1 cursor-pointer order-1 w-36 overflow-hidden group'>
                     <button onClick={() => { document.getElementById("range_input").value = 0 }}>
