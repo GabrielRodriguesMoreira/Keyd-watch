@@ -15,6 +15,7 @@ import {
 } from 'react-icons/md'
 import { useSideModal } from '../componenets/contextprovider'
 import YouTube from 'react-youtube';
+import DisqusComments from '../componenets/disqus'
 
 export default function Live() {
 
@@ -179,7 +180,7 @@ export default function Live() {
                     ></iframe>
                 )}
                 {acompanhamento === 'estatisticas' && (
-                    <iframe className='w-full h-full' src='https://aureom.github.io/live-lol-esports/#/'></iframe>
+                          <DisqusComments />
 
                 )}
                 {acompanhamento === 'termo' && (

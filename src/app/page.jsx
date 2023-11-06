@@ -17,6 +17,7 @@ const Home = () => {
         alt="Homepage Image"
         className="w-auto h-72 mb-4 lg:h-96"
       />
+
     </div>
   );
 };
