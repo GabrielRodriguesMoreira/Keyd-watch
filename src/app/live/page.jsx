@@ -92,10 +92,10 @@ export default function Live() {
 
 
     return (
-        <main className="w-full flex flex-wrap lg:p-2 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
+        <main className="w-full flex flex-wrap justify-center p-2 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={`w-full max-w-xs lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
+            <div className={`w-full max-w-sm lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
                 {
                     liveId ?
                         <div className='w-full relative rounded-md aspect-video overflow-hidden'>
@@ -161,7 +161,7 @@ export default function Live() {
             </div>
 
             {/* Live da Twitch */}
-            <div className={` w-full max-w-xs lg:max-w-none overflow-hidden rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
+            <div className={` w-full max-w-sm lg:max-w-none overflow-hidden rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
                 <iframe
                     className="w-full aspect-video relative rounded-md"
                     src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
@@ -170,7 +170,7 @@ export default function Live() {
             </div>
 
             {/* Chat */}
-            < div className=" w-full max-w-xs lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
+            < div className=" w-full max-w-sm lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
                 {acompanhamento === 'twitchChat' && (
                     <iframe
                         className='w-full h-full min-h-[500px] lg:min-h-0'
