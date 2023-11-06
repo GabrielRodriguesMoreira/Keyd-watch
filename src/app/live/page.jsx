@@ -92,10 +92,10 @@ export default function Live() {
 
 
     return (
-        <main className="w-full flex flex-col lg:p-2 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4 lg:space-y-0">
+        <main className="w-full flex flex-wrap lg:p-2 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={`w-full ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
+            <div className={`w-full max-w-xs lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
                 {
                     liveId ?
                         <div className='w-full relative rounded-md aspect-video overflow-hidden'>
@@ -103,7 +103,7 @@ export default function Live() {
                             <YouTube iframeClassName='w-full h-full aspect-video' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
                         :
-                        <div className="w-full h-full relative flex flex-col items-center aspect-video text-black p-3 pb-0" >
+                        <div className="w-full relative flex flex-col items-center aspect-video text-black p-3 pb-0" >
                             <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                             <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a014f78683509.5cc559ebcfd32.png" alt="" />
                         </div>
@@ -161,7 +161,7 @@ export default function Live() {
             </div>
 
             {/* Live da Twitch */}
-            <div className={` w-full  overflow-hidden rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
+            <div className={` w-full max-w-xs lg:max-w-none overflow-hidden rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
                 <iframe
                     className="w-full aspect-video relative rounded-md"
                     src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
@@ -170,7 +170,7 @@ export default function Live() {
             </div>
 
             {/* Chat */}
-            < div className=" w-full col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
+            < div className=" w-full max-w-xs lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
                 {acompanhamento === 'twitchChat' && (
                     <iframe
                         className='w-full h-full min-h-[500px] lg:min-h-0'
