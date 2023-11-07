@@ -92,8 +92,13 @@ export default function SideModal() {
                     </select>
                 </div>
                 {/* Logo */}
-                <div className="w-10">
-                    <img src="keydlogo.webp" className="object-scale-down" alt="" />
+                <div className="w-full h-10 flex justify-between ">
+                    <img src="keydlogo.webp" className="h-full w-auto " alt="" />
+                    <div className="h-full w-fit flex items-center text-end ">
+                        <span className="text-white font-semibold ">Developed <br></br>by Garoa</span>
+                        <img src="newlogo.webp" className="h-full w-auto" alt="" />
+                    </div>
+
                 </div>
             </section>
 
