@@ -33,3 +33,25 @@ background-color: #999999;
 background-color: #383838;
 }
 
+
+@keyframes slide-in {
+  0% {
+    right: -1000px;
+  }
+  100% {
+    right: 5%;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.slide-in {
+  animation: slide-in 2s ease, pulse 1.5s linear infinite;
+}
