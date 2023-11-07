@@ -51,13 +51,8 @@ class DisqusComments extends Component {
   render() {
     return (
       <div className='w-full h-full relative '>
-        <div id="disqus_thread" className='h-full w-full pr-3'></div>
-        <button
-            className="fixed bottom-[60%] right-[5%] transform -translate-x-1/2 bg-purple-800 text-white p-2 rounded-full text-sm font-semibold shadow-lg shadow-black animate-pulse slide-in"
-            onClick={this.handleRefreshClick}
-          >
-            Load new posts
-          </button>
+        <div id="disqus_thread" className='h-full w-full pr-2'></div>
+        
         {this.state.showRefreshButton && (
           <button
             className="absolute top-5 left-[50%] transform -translate-x-1/2 bg-purple-800 text-white p-2 rounded-full text-sm font-semibold shadow-lg shadow-black animate-pulse slide-in"

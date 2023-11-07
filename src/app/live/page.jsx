@@ -93,13 +93,13 @@ export default function Live() {
 
 
     return (
-        <main className="w-full flex flex-wrap justify-center p-2 gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
+        <main className="w-full flex flex-wrap justify-center lg:p-2 lg:gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={`w-full max-w-sm lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} rounded-md `} >
+            <div className={`w-full max-w-sm lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} lg:rounded-md mb-2 lg:mb-0`} >
                 {
                     liveId ?
-                        <div className='w-full relative rounded-md aspect-video overflow-hidden'>
+                        <div className='w-full relative lg:rounded-md aspect-video overflow-hidden'>
                             <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                             <YouTube iframeClassName='w-full h-full aspect-video' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
@@ -162,24 +162,24 @@ export default function Live() {
             </div>
 
             {/* Live da Twitch */}
-            <div className={` w-full max-w-sm lg:max-w-none overflow-hidden rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
+            <div className={` w-full max-w-sm lg:max-w-none overflow-hidden lg:rounded-md ${swapScreen ? "col-start-1 row-start-1 col-span-9 row-span-9" : "col-start-10 row-start-1 col-span-3 row-span-3"}`}>
                 <iframe
-                    className="w-full aspect-video relative rounded-md"
+                    className="w-full aspect-video relative lg:rounded-md"
                     src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
                 >
                 </iframe>
             </div>
 
-            {/* Chat */}
-            < div className=" w-full max-w-sm lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 rounded-md overflow-y-auto ">
+            {/* 3° tela */}
+            < div className=" w-full max-w-sm min-h-[500px] lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 lg:rounded-md overflow-y-auto ">
                 {acompanhamento === 'twitchChat' && (
                     <iframe
-                        className='w-full h-full min-h-[500px] lg:min-h-0'
+                        className='w-full h-full lg:min-h-0'
                         src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=keyd-watch.vercel.app"
                         type="text/html"
                     ></iframe>
                 )}
-                {acompanhamento === 'estatisticas' && (
+                {acompanhamento === 'comunidade' && (
                           <DisqusComments />
 
                 )}

@@ -85,7 +85,7 @@ export default function SideModal() {
                 {/* Select de Troca chat */}
                 <select value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-800 outline-none">
                     <option value="twitchChat">Twitch Chat</option>
-                    <option value="estatisticas">Estatisticas</option>
+                    <option value="comunidade">Comunidade</option>
                     <option value="termo">Termo</option>
 
                 </select>
