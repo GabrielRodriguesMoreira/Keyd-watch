@@ -67,7 +67,7 @@ class DisqusComments extends Component {
         </noscript>
       </div>
     );
-  }
+  }ss
 }
 
 export default DisqusComments;

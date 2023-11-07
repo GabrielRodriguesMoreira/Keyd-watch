@@ -55,7 +55,7 @@ export default function SideModal() {
                         placeholder='Cole o Link aqui Ex: https://www.youtube.com/watch?v=dWlwqkE3YGA&t'
                     />
                     <button type='submit' className="bg-purple-800 rounded-sm p-2 items-center text-xl">
-                        <MdWifiTethering     />
+                        <MdWifiTethering />
                     </button>
                 </form>
 
@@ -83,13 +83,14 @@ export default function SideModal() {
                 </nav>
 
                 {/* Select de Troca chat */}
-                <select value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full p-2 text-white bg-zinc-950 border border-purple-800 outline-none">
-                    <option value="twitchChat">Twitch Chat</option>
-                    <option value="comunidade">Comunidade</option>
-                    <option value="termo">Termo</option>
-
-                </select>
-
+                <div className=" h-20 space-y-1 text-white font-semibold text-lg ">
+                    <label htmlFor="acompanhamento" className="rounded-sm flex justify-center items-center w-1/3 h-1/2 bg-zinc-950 border border-purple-800">3°tela</label>
+                    <select id="acompanhamento" value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full px-2 h-1/2 bg-zinc-950 border border-purple-800 outline-none">
+                        <option value="twitchChat">Twitch Chat</option>
+                        <option value="comunidade">Comunidade</option>
+                        <option value="termo">Termo</option>
+                    </select>
+                </div>
                 {/* Logo */}
                 <div className="w-10">
                     <img src="keydlogo.webp" className="object-scale-down" alt="" />

@@ -171,7 +171,7 @@ export default function Live() {
             </div>
 
             {/* 3° tela */}
-            < div className=" w-full max-w-sm min-h-[500px] lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 lg:rounded-md overflow-y-auto ">
+            < div className=" w-full max-w-sm min-h-[500px] lg:min-h-0 lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 lg:rounded-md overflow-y-auto ">
                 {acompanhamento === 'twitchChat' && (
                     <iframe
                         className='w-full h-full lg:min-h-0'
