@@ -96,7 +96,7 @@ export default function Live() {
         <main className="w-full flex flex-wrap justify-center lg:p-2 lg:gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={`w-full max-w-sm lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} lg:rounded-md mb-2 lg:mb-0`} >
+            <div className={`w-full max-w-sm lg:max-w-none ${swapScreen ? "col-start-10 row-start-1 col-span-3 row-span-3" : "col-start-1 row-start-1 col-span-9 row-span-9"} lg:rounded-md `} >
                 {
                     liveId ?
                         <div className='w-full relative lg:rounded-md aspect-video overflow-hidden'>

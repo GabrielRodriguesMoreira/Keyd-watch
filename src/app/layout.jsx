@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-zinc-900">
+      <body className="bg-zinc-900 pb-4 lg:pb-0">
         <ContextProvider>
           {children}
           <SideModal />

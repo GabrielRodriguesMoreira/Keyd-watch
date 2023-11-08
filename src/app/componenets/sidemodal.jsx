@@ -84,21 +84,21 @@ export default function SideModal() {
 
                 {/* Select de Troca chat */}
                 <div className=" h-20 space-y-1 text-white font-semibold text-lg ">
-                    <label htmlFor="acompanhamento" className="rounded-sm flex justify-center items-center w-1/3 h-1/2 bg-zinc-950 border border-purple-800  transform translate-y-2 translate-x-1">3° tela</label>
+                    <label htmlFor="acompanhamento" className="rounded-sm flex justify-center items-center w-1/3 h-1/2 bg-zinc-950 border border-purple-800  transform translate-y-2 translate-x-3">3° tela</label>
                     <select id="acompanhamento" value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full px-6 h-1/2 bg-zinc-950 border border-purple-800 outline-none">
                         <option value="twitchChat">Twitch Chat</option>
                         <option value="comunidade">Comunidade</option>
                         <option value="termo">Termo</option>
                     </select>
                 </div>
+
                 {/* Logo */}
                 <div className="w-full h-10 flex justify-between ">
 
                     <img src="keydlogo.webp" className="h-full w-auto " alt="" />
 
-                    <div className="h-full w-fit flex items-center  bg-stone-400 p-1 rounded-md space-x-1 shadow-md shadow-black cursor-pointer">
-                        <span className="font-semibold text-sm text-end">Developed <br></br>by Garoa</span>
-                        <img src="newlogo.webp" className="h-full w-auto " alt="" />
+                    <div className="h-full w-fit flex items-center   p-1 rounded-md space-x-1 shadow-md shadow-black cursor-pointer">
+
                     </div>
 
                 </div>
