@@ -70,7 +70,7 @@ export default function SideModal() {
                 </div>
 
                 {/* Links de navegação */}
-                <nav className="flex flex-col justify-center gap-10 py-10 ">
+                <nav className="flex flex-col justify-center gap-10 ">
                     <Link href="/" >
                         <span className=" w-fit py-1 px-3 rounded-full text-2xl text-white hover:text-purple-800 hover:bg-white hover:ml-6 flex items-center space-x-2 transition-all duration-300"><MdHomeFilled /> <p>Home</p></span>
                     </Link>
@@ -84,8 +84,8 @@ export default function SideModal() {
 
                 {/* Select de Troca chat */}
                 <div className=" h-20 space-y-1 text-white font-semibold text-lg ">
-                    <label htmlFor="acompanhamento" className="rounded-sm flex justify-center items-center w-1/3 h-1/2 bg-zinc-950 border border-purple-800">3°tela</label>
-                    <select id="acompanhamento" value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full px-2 h-1/2 bg-zinc-950 border border-purple-800 outline-none">
+                    <label htmlFor="acompanhamento" className="rounded-sm flex justify-center items-center w-1/3 h-1/2 bg-zinc-950 border border-purple-800  transform translate-y-2 translate-x-1">3° tela</label>
+                    <select id="acompanhamento" value={acompanhamento} onChange={toggleAcompanhamento} className="rounded-sm w-full px-6 h-1/2 bg-zinc-950 border border-purple-800 outline-none">
                         <option value="twitchChat">Twitch Chat</option>
                         <option value="comunidade">Comunidade</option>
                         <option value="termo">Termo</option>
@@ -93,10 +93,12 @@ export default function SideModal() {
                 </div>
                 {/* Logo */}
                 <div className="w-full h-10 flex justify-between ">
+
                     <img src="keydlogo.webp" className="h-full w-auto " alt="" />
-                    <div className="h-full w-fit flex items-center text-end ">
-                        <span className="text-white font-semibold ">Developed <br></br>by Garoa</span>
-                        <img src="newlogo.webp" className="h-full w-auto" alt="" />
+
+                    <div className="h-full w-fit flex items-center  bg-stone-400 p-1 rounded-md space-x-1 shadow-md shadow-black cursor-pointer">
+                        <span className="font-semibold text-sm text-end">Developed <br></br>by Garoa</span>
+                        <img src="newlogo.webp" className="h-full w-auto " alt="" />
                     </div>
 
                 </div>

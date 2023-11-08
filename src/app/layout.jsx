@@ -1,6 +1,7 @@
 import './globals.css'
 import SideModal from './componenets/sidemodal'
 import { ContextProvider } from './componenets/contextprovider'
+import CookieConsent from './componenets/cookieconsent'
 
 export const metadata = {
   title: 'Vivo Keyd Multi Stream',
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
         <ContextProvider>
           {children}
           <SideModal />
+          <CookieConsent />
         </ContextProvider>
       </body>
     </html>
