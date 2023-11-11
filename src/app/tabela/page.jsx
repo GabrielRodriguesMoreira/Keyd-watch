@@ -77,17 +77,17 @@ export default function Tabela() {
 
 
     return (
-        <main className="flex w-screen h-screen">
-            <section className="h-full w-fit overflow-hidden">
-                <ul className="list-none h-full flex flex-col pl-6 p-2 justify-between bg-zinc-700">
+        <main className="flex flex-col lg:flex-row lg:w-screen lg:h-screen ">
+            <section className=" w-full  h-fit lg:h-full lg:w-fit overflow-hidden">
+                <ul className="list-none h-full flex flex-col lg:pl-6 p-2 lg:justify-between bg-zinc-700 space-y-4 lg:space-y-0">
                     {teamsData.map((team, index) => (
                         <li
                             key={team.rank}
-                            className={`flex items-center relative overflow-hidden text-white font-semibold space-x-4 h-fit bg-zinc-800 -500 rounded-md p-1 shadow-md hover:shadow-black transition-all cursor-pointer`}
+                            className={`flex items-center relative overflow-hidden font-semibold text-white  space-x-4 h-fit bg-zinc-800 min-h-[90px] lg:min-h-0 rounded-md p-1 shadow-md hover:shadow-black transition-all cursor-pointer`}
                         >
                             <img src={team.logo} className="absolute opacity-40 blur-[1px] w-[55%] transform -translate-y-[50%] -translate-x-[50%] top-[50%]" alt="" />
-                            <div className="flex w-full items-center space-x-4 z-10">
-                                <div className="flex flex-col font-bold">
+                            <div className="flex w-full items-center justify-around lg:justify-normal space-x-6 z-10">
+                                <div className="flex flex-col ">
                                     <span className="">{team.name}</span>
                                     <span>Wins: {team.wins} / Loses: {team.loses}</span>
                                 </div>
@@ -98,10 +98,10 @@ export default function Tabela() {
                 </ul>
             </section>
 
-            <section className="flex flex-1 gap-3">
-                <div className=" w-full h-1/2 flex p-2 text-white space-x-4" id="matches">
+            <section className=" flex-1 gap-3 ">
+                <div className=" w-full h-1/2 flex flex-col items-center lg:items-start space-y-4 lg:space-y-0 lg:flex-row p-2 text-white lg:space-x-4" id="matches">
                     {MatchesData.map((match, matchIndex) => (
-                        <div key={matchIndex} className="h-full w-64 rounded-md flex flex-col justify-between text-center font-medium shadow-inner shadow-black p-2">
+                        <div key={matchIndex} className="h-full w-full lg:w-64 rounded-md flex flex-col justify-between text-center font-medium shadow-inner shadow-black p-2">
                             <h1 className="w-fit bg-zinc-800 rounded-sm px-2 py-1 shadow-sm shadow-black">{match.date}</h1>
                             {match.teams.map((team, teamIndex) => (
                                 <div key={teamIndex} className="relative flex w-full h-10 shadow-sm shadow-black p-1 hover:shadow-md hover:shadow-black cursor-pointer transition-shadow">
@@ -124,7 +124,7 @@ export default function Tabela() {
                     ))}
                 </div>
 
-                <div className="w-full h-1/2 flex p-2 text-white space-x-8" id="matches">
+                <div className=" hidden w-full h-1/2  p-2 text-white space-x-8" id="matches">
                     {/* This appears to be a placeholder for news content */}
                 </div>
             </section>
