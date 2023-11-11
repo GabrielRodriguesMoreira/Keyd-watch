@@ -40,7 +40,7 @@ export default function SideModal() {
     }
 
     return (
-        <aside className={` fixed h-full top-0 w-80 flex items-center ${isOpen ? "left-[0]" : "-left-72"} transition-all`}>
+        <aside className={` fixed h-full top-0 w-80 flex items-center ${isOpen ? "left-[0]" : "-left-72"} transition-all z-20`}>
             <section className={`h-full w-72 flex flex-col justify-between p-3 bg-zinc-950 shadow-lg shadow-black`}>
 
                 {/* Input busca live */}

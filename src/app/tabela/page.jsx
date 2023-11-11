@@ -29,7 +29,28 @@ export default function Tabela() {
                     time: '14:00',
                     redside: "LBR",
                     logo2: 'keydlogo.webp',
-                }
+                },
+                {
+                    logo1: 'keydlogo.webp',
+                    blueside: 'LOS',
+                    time: '14:00',
+                    redside: "LBR",
+                    logo2: 'keydlogo.webp',
+                },
+                {
+                    logo1: 'keydlogo.webp',
+                    blueside: 'LOS',
+                    time: '14:00',
+                    redside: "LBR",
+                    logo2: 'keydlogo.webp',
+                },
+                {
+                    logo1: 'keydlogo.webp',
+                    blueside: 'LOS',
+                    time: '14:00',
+                    redside: "LBR",
+                    logo2: 'keydlogo.webp',
+                },
             ],
         },
         {
@@ -58,48 +79,44 @@ export default function Tabela() {
     return (
         <main className="flex w-screen h-screen">
             <section className="h-full w-fit overflow-hidden">
-                <ul className="list-none  h-full flex flex-col pl-6 p-2 justify-between bg-zinc-700">
+                <ul className="list-none h-full flex flex-col pl-6 p-2 justify-between bg-zinc-700">
                     {teamsData.map((team, index) => (
                         <li
                             key={team.rank}
-                            className={`flex items-center relative overflow-hidden   text-white font-semibold space-x-4 h-fit bg-zinc-800 -500 rounded-md p-1 shadow-md hover:shadow-black transition-all cursor-pointer`}
-
+                            className={`flex items-center relative overflow-hidden text-white font-semibold space-x-4 h-fit bg-zinc-800 -500 rounded-md p-1 shadow-md hover:shadow-black transition-all cursor-pointer`}
                         >
                             <img src={team.logo} className="absolute opacity-40 blur-[1px] w-[55%] transform -translate-y-[50%] -translate-x-[50%] top-[50%]" alt="" />
                             <div className="flex w-full items-center space-x-4 z-10">
-                               
                                 <div className="flex flex-col font-bold">
                                     <span className="">{team.name}</span>
-                                    <span>Wins: {team.wins} - Loses: {team.loses}</span>
+                                    <span>Wins: {team.wins} / Loses: {team.loses}</span>
                                 </div>
-                                <span >{team.rank}°</span>
+                                <span>{team.rank}°</span>
                             </div>
-
                         </li>
                     ))}
                 </ul>
             </section>
 
             <section className="flex flex-1 gap-3">
-                <div className="w-full h-1/2 flex p-2 text-white space-x-5 " id="matches">
+                <div className=" w-full h-1/2 flex p-2 text-white space-x-4" id="matches">
                     {MatchesData.map((match, matchIndex) => (
-                        <div key={matchIndex} className="p-2 space-y-2 h-1/2 ">
-                            <h1>{match.date}</h1>
+                        <div key={matchIndex} className="h-full w-64 rounded-md flex flex-col justify-between text-center font-medium shadow-inner shadow-black p-2">
+                            <h1 className="w-fit bg-zinc-800 rounded-sm px-2 py-1 shadow-sm shadow-black">{match.date}</h1>
                             {match.teams.map((team, teamIndex) => (
-                                <div key={teamIndex} className="flex justify-between h-1/5 w-64 ">
-                                    <div className="flex space-x-1 items-center">
-                                        <div className="h-full w-2 bg-blue-500 rounded-full"></div>
-                                        <img src={team.logo1} alt="" className="h-full w-auto" />
+                                <div key={teamIndex} className="relative flex w-full h-10 shadow-sm shadow-black p-1 hover:shadow-md hover:shadow-black cursor-pointer transition-shadow">
+                                    <div className="absolute top-0 left-0 w-full h-full -z-10 opacity-20 bg-gradient-to-r from-blue-900 via-transparent to-red-900"></div>
+                                    <div className="flex items-center h-full w-2/5 space-x-1">
+                                        <img src={team.logo1} className="h-full" alt="" />
                                         <p>{team.blueside}</p>
                                     </div>
-                                    <div className="h-full text-center text-xs">
+                                    <div className="h-full flex flex-col w-1/5 text-center justify-center text-xs">
                                         <p>{team.time}</p>
                                         <p>VS</p>
                                     </div>
-                                    <div className="flex space-x-1 items-center">
+                                    <div className="flex items-center h-full w-2/5 space-x-1 justify-end">
                                         <p>{team.redside}</p>
-                                        <img src={team.logo2} alt="" className="h-full w-auto" />
-                                        <div className="h-full w-2 bg-red-500 rounded-full"></div>
+                                        <img src={team.logo2} className="h-full" alt="" />
                                     </div>
                                 </div>
                             ))}
@@ -107,11 +124,11 @@ export default function Tabela() {
                     ))}
                 </div>
 
-
-                <div className="w-full h-1/2 " id="news">
-                    {/* Add your content for news here */}
+                <div className="w-full h-1/2 flex p-2 text-white space-x-8" id="matches">
+                    {/* This appears to be a placeholder for news content */}
                 </div>
             </section>
         </main>
+
     );
 }
