@@ -93,15 +93,8 @@ export default function SideModal() {
                 </div>
 
                 {/* Logo */}
-                <div className="w-full h-10 flex justify-between ">
+                    <img src="keydlogo.webp" className="h-12 w-12" alt="" />
 
-                    <img src="keydlogo.webp" className="h-full w-auto " alt="" />
-
-                    <div className="h-full w-fit flex items-center   p-1 rounded-md space-x-1 shadow-md shadow-black cursor-pointer">
-
-                    </div>
-
-                </div>
             </section>
 
             {/* Botão abrir a sidebar */}

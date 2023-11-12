@@ -1,7 +1,7 @@
 export default function Tabela() {
-    const painLogo = 'https://upload.wikimedia.org/wikipedia/en/e/e5/PaiN_Gaming_logo.svg';
+    const painLogo = 'https://pt.egamersworld.com/uploads/counterstrike/teams/pain-gaming-logo.png';
     const loudLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/LOUD_logo.svg/1200px-LOUD_logo.svg.png';
-    const redCanidsLogo = 'redcanidslogo.png'; // Assuming this logo file is in the same directory
+    const redCanidsLogo = 'redcanidslogo.png'; 
     const libertyLogo = 'https://static1.squarespace.com/static/61afb10ae1f7cf52bfb3dd13/t/61b2690c6e2d5c6aa3f405e5/1699463747826/';
     const kabumLogo = 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ed/KaBuM%21_e-Sportslogo_square_old.png';
     const losLogo = 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/46/Los_Grandeslogo_old.png';
@@ -246,10 +246,9 @@ export default function Tabela() {
                                 </div>
                                 <span >{team.rank}°</span>
                             </div>
-
-
-                            <img src={team.logo} className="absolute opacity-40 blur-[1px] w-[55%] transform -translate-y-[50%] -translate-x-[30%] top-[50%]" alt="" />
-                            <div className="absolute h-full w-full bg-gradient-to-l from-transparent to-black via-transparent opacity-30"></div>
+                            
+                            <img src={team.logo} className="absolute opacity-30 w-[55%] transform -translate-y-[50%] -translate-x-[30%] top-[50%]" alt="" />
+                            <div className="absolute h-full w-full bg-gradient-to-l from-transparent to-black via-transparent opacity-20"></div>
                         </li>
                     ))}
                 </ul>

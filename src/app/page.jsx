@@ -1,7 +1,7 @@
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-zinc-950 to-purple-800 flex flex-col lg:flex-row items-center justify-center overflow-hidden lg:space-x-32 p-4">
+    <div className=" min-h-screen bg-gradient-to-br from-zinc-950 to-purple-800 flex flex-col lg:flex-row items-center justify-center overflow-hidden lg:space-x-32">
 
       <div className="max-w-md text-white text-center lg:text-left">
         <h1 className="text-2xl lg:text-4xl font-bold mb-4">Welcome to Keyd Watch!</h1>
@@ -17,6 +17,12 @@ const Home = () => {
         alt="Homepage Image"
         className="w-auto h-72 mb-4 lg:h-96"
       />
+
+      <div className=" absolute h-14 w-fit bottom-3 right-3 flex items-center rounded-md space-x-1 cursor-pointer bg-gradient-to-r from-gray-700 to-gray-800 p-2">
+      <img src="garoalogo.webp" className="h-full w-auto " alt="" />
+        <span className="text-white text-sm italic font-bold line-clamp-2">Developed<br></br>by  Garoa</span>
+       
+      </div>
 
     </div>
   );
