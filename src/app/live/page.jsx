@@ -213,7 +213,7 @@ export default function Live() {
                 <div className='absolute top-0 left-0 w-full pointer-events-none aspect-video' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                 <iframe
                     className="w-full aspect-video relative lg:rounded-md -z-10"
-                    src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app/" type="text/html" allowFullScreen
+                    src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
                 >
                 </iframe>
             </div>
