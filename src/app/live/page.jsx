@@ -128,16 +128,17 @@ export default function Live() {
         <main className="w-full flex flex-wrap justify-center lg:p-2 lg:gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={"w-full max-w-sm lg:max-w-none lg:rounded-md" + swapScreen.ytScreen} >
+            <div className={"w-full relative max-w-sm lg:max-w-none lg:rounded-md" + swapScreen.ytScreen} >
+                <div className='absolute top-0 left-0 w-full  pointer-events-none aspect-video z-10 rounded-md' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                 {
                     liveId ?
                         <div className='w-full relative lg:rounded-md aspect-video overflow-hidden'>
-                            <div className='absolute top-0 left-0 w-full h-full pointer-events-none aspect-video' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
+
                             <YouTube iframeClassName='w-full h-full aspect-video -z-10' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
                         :
                         <div className="w-full relative flex flex-col items-center aspect-video text-black p-3 pb-0" >
-                            <div className='absolute top-0 left-0 w-full h-full pointer-events-none' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
+
                             <img className=' absolute top-0 left-0 h-full w-full object-fill -z-10' src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7a014f78683509.5cc559ebcfd32.png" alt="" />
                         </div>
                 }
@@ -210,9 +211,9 @@ export default function Live() {
 
             {/* Live da Twitch */}
             <div className={"w-full relative max-w-sm lg:max-w-none overflow-hidden lg:rounded-md" + swapScreen.twScreen}>
-                <div className='absolute top-0 left-0 w-full pointer-events-none aspect-video' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
+                <div className='absolute top-0 left-0 rounded-md w-full pointer-events-none aspect-video z-10' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                 <iframe
-                    className="w-full aspect-video relative lg:rounded-md -z-10"
+                    className="w-full aspect-video relative lg:rounded-md "
                     src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
                 >
                 </iframe>
