@@ -9,7 +9,9 @@ import {
     MdKeyboardDoubleArrowRight,
     MdPlayArrow,
     MdPause,
-    MdSwapHoriz,
+    MdFilter1,
+    MdFilter2,
+    MdFilter3,
     MdFullscreen,
     MdOutlineSubtitles
 } from 'react-icons/md'
@@ -188,23 +190,14 @@ export default function Live() {
                     <button onClick={toggleSubTitle}>
                         <IconWithTooltip icon={<MdOutlineSubtitles />} text="Subtitles" />
                     </button>
-                    <button onClick={() => { swapScreenfunc(3) }}>
-                        <IconWithTooltip icon={<svg width="26" height="16" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="1" width="10" height="10" stroke="red" fill="none" />
-                            <rect x="15" y="1" width="10" height="10" stroke="purple" fill="none" />
-                        </svg>} text="Side by side" />
-                    </button>
                     <button onClick={() => { swapScreenfunc(1) }}>
-                        <IconWithTooltip icon={<svg width="26" height="16" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="1" width="10" height="10" stroke="red" fill="none" />
-                            <rect x="15" y="1" width="6" height="6" stroke="purple" fill="none" />
-                        </svg>} text="big youtube" />
+                        <IconWithTooltip icon={<MdFilter1 />} text="Side by side" />
                     </button>
                     <button onClick={() => { swapScreenfunc(2) }}>
-                        <IconWithTooltip icon={<svg width="26" height="16" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="1" width="10" height="10" stroke="purple" fill="none" />
-                            <rect x="15" y="1" width="6" height="6" stroke="red" fill="none" />
-                        </svg>} text="big twitch" />
+                        <IconWithTooltip icon={<MdFilter2 />} text="big youtube" />
+                    </button>
+                    <button onClick={() => { swapScreenfunc(3) }}>
+                        <IconWithTooltip icon={<MdFilter3 />} text="big twitch" />
                     </button>
                 </div>
             </div>
@@ -224,7 +217,7 @@ export default function Live() {
                 {acompanhamento === 'twitchChat' && (
                     <iframe
                         className='w-full h-full lg:min-h-0'
-                        src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=false&amp;parent=twitch.tv&amp;parent=keyd-watch.vercel.app"
+                        src="https://www.twitch.tv/embed/patopapao/chat?&darkpopout&amp;enableExtensions=true&amp;parent=twitch.tv&amp;parent=keyd-watch.vercel.app"
                         type="text/html"
                     ></iframe>
                 )}

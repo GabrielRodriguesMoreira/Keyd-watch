@@ -226,10 +226,6 @@ export default function Tabela() {
         { name: 'Furia', logo: furiaLogo, wins: 0, loses: 0, rank: 10 },
     ];
 
-
-
-
-
     return (
         <main className="flex flex-col lg:flex-row lg:w-screen lg:h-screen">
             <section className=" h-fit lg:h-full lg:w-1/6 overflow-hidden">
