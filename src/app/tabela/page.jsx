@@ -1,7 +1,9 @@
+import News from "../componenets/news";
+
 export default function Tabela() {
     const painLogo = 'https://pt.egamersworld.com/uploads/counterstrike/teams/pain-gaming-logo.png';
     const loudLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/LOUD_logo.svg/1200px-LOUD_logo.svg.png';
-    const redCanidsLogo = 'redcanidslogo.png'; 
+    const redCanidsLogo = 'redcanidslogo.png';
     const libertyLogo = 'https://static1.squarespace.com/static/61afb10ae1f7cf52bfb3dd13/t/61b2690c6e2d5c6aa3f405e5/1699463747826/';
     const kabumLogo = 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/e/ed/KaBuM%21_e-Sportslogo_square_old.png';
     const losLogo = 'https://static.wikia.nocookie.net/lolesports_gamepedia_en/images/4/46/Los_Grandeslogo_old.png';
@@ -242,7 +244,7 @@ export default function Tabela() {
                                 </div>
                                 <span >{team.rank}°</span>
                             </div>
-                            
+
                             <img src={team.logo} className="absolute opacity-30 w-[55%] transform -translate-y-[50%] -translate-x-[30%] top-[50%]" alt="" />
                             <div className="absolute h-full w-full bg-gradient-to-l from-transparent to-black via-transparent opacity-20"></div>
                         </li>
@@ -250,8 +252,8 @@ export default function Tabela() {
                 </ul>
             </section>
 
-            <section className=" gap-3 w-full lg:w-5/6 p-2">
-                <div className="w-full overflow-x-scroll h-1/2 flex pb-1" id="matches">
+            <section className=" gap-3 w-full lg:w-5/6 ">
+                <div className="w-full overflow-x-scroll h-1/2 flex  p-2" id="matches">
                     <div className=" h-full flex items-center  lg:items-start space-y-4 lg:space-y-0 flex-col lg:flex-row text-white lg:space-x-4">
                         {MatchesData.map((match, matchIndex) => (
                             <div key={matchIndex} className="h-full  w-64 rounded-md flex flex-col justify-between text-center font-medium shadow-inner shadow-black p-2">
@@ -279,9 +281,41 @@ export default function Tabela() {
                     </div>
                 </div>
 
-                <div className=" flex flex-col justify-between items-start w-full h-1/2 p-2 text-white " id="news">
-                    <h1 className="font-bold text-lg">Notícias</h1>
-                    <iframe className="w-full h-[270px]  m-0 p-0" src="https://rss.app/embed/v1/carousel/XWfRQbJaj08r0OOI" frameborder="0"></iframe>
+                <div className=" flex flex-col w-full h-1/2 p-2  text-white bg-zinc-950 overflow-auto" id="news">
+                    <h1 className="text-2xl text-white font-bold mb-1">Notícias</h1>
+                    <div className="h-full flex w-fit space-x-6">
+                        <News
+                            title="Worlds 2023: Faker descarta aposentadoria; assista à coletiva da T1"
+                            img="https://noticias.maisesports.com.br/wp-content/uploads/2023/11/t1-worlds-2023-coletiva-800x534.jpg"
+                            text="A T1 atropelou a Weibo Gaming por 3-0 e ergueu a taça do Worlds..."
+                            date='19/11/2023'
+                            link="https://maisesports.com.br/worlds-2023-faker-descarta-aposentadoria-em-coletiva-veja-todas-as-respostas/"
+                        />
+                        <News
+                            title="Worlds 2023: T1 segue sem perder para equipes da LPL em playoffs de Mundial"
+                            link="https://maisesports.com.br/worlds-2023-t1-segue-sem-perder-para-equipes-da-lpl-em-playoffs-de-mundial/"
+                            text="A T1 se sagrou tetracampeã mundial de LoL! Os sul-coreanos..."
+                            date='19/11/2023'
+                            img="https://noticias.maisesports.com.br/wp-content/uploads/2023/11/faker-levantando-trofeu-worlds-2024-800x448.jpg"
+
+                        />
+                        <News
+                            title="Worlds 2023: Mundial de LoL é o torneio mais assistido da história dos esports"
+                            link="https://maisesports.com.br/worlds-2023-mundial-de-lol-e-o-torneio-mais-assistido-da-historia-dos-esports/"
+                            text="O Worlds 2023 chegou ao fim com um atropelo da T1 em cima da Weibo Gaming..."
+                            date='19/11/2023'
+                            img="https://noticias.maisesports.com.br/wp-content/uploads/2023/11/worlds-2023-audiencia-final-800x534.jpg"
+
+                        />
+                        <News
+                            title="Worlds 2023: Zeus é eleito o MVP da final pela Riot"
+                            link="https://maisesports.com.br/worlds-2023-zeus-e-eleito-o-mvp-da-final-pela-riot/"
+                            text="A T1 atropelou a Weibo Gaming na final do Worlds 2023 e se sagrou tetracampeã..."
+                            date='19/11/2023'
+                            img="https://noticias.maisesports.com.br/wp-content/uploads/2023/11/zeus-mvp-worlds-2024-800x447.jpg"
+
+                        />
+                    </div>
                 </div>
             </section>
         </main>
