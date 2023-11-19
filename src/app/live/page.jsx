@@ -130,7 +130,7 @@ export default function Live() {
         <main className="w-full flex flex-wrap justify-center lg:p-2 lg:gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={"w-full relative max-w-sm lg:max-w-none lg:rounded-md" + swapScreen.ytScreen} >
+            <div className={"w-full relative max-w-sm lg:max-w-none lg:rounded-md " + swapScreen.ytScreen} >
                 <div className='absolute top-0 left-0 w-full  pointer-events-none aspect-video z-10 rounded-md' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                 {
                     liveId ?
@@ -147,59 +147,76 @@ export default function Live() {
             </div>
 
             {/* Controles */}
-            <div className={" w-full items-start row-start-10  text-white  justify-between text-xl  hidden lg:flex" + swapScreen.controls} >
+            <div className={" w-full h-full items-start row-start-10 gap-1  text-white  justify-between text-xl  hidden lg:flex lg:flex-col" + swapScreen.controls} >
 
-                <div className='flex  justify-center items-center space-x-1 cursor-pointer order-1 w-36 overflow-hidden group'>
-                    <button onClick={() => { document.getElementById("range_input").value = 0 }}>
-                        <IconWithTooltip icon={<MdVolumeUp />} text="volume" />
-                    </button>
-                    <input
-                        type="range"
-                        min="0"
-                        max="100"
-                        step="1"
-                        id='range_input'
-                        className='range_input_style lg:opacity-0 group-hover:opacity-100 w-28'
-                        onChange={handleVolumeChange}
-                    />
+                <div className='flex justify-between items-center w-full h-1/2 '>   
+                    <div className='flex  justify-center items-center space-x-1 cursor-pointer order-1 w-36 overflow-hidden group'>
+                        <button onClick={() => { document.getElementById("range_input").value = 0 }}>
+                            <IconWithTooltip icon={<MdVolumeUp />} text="volume" />
+                        </button>
+                        <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            step="1"
+                            id='range_input'
+                            className='range_input_style lg:opacity-0 group-hover:opacity-100 w-28'
+                            onChange={handleVolumeChange}
+                        />
+                    </div>
+                    <div className='text-xl items-center lg:text-3xl space-x-4 lg:order-2'>
+                        <button onClick={() => seekTime(-5)}>
+                            <IconWithTooltip icon={<MdKeyboardDoubleArrowLeft />} text="Rewind -5" />
+                        </button>
+                        <button onClick={() => seekTime(-1)}>
+                            <IconWithTooltip icon={<MdKeyboardArrowLeft />} text="Rewind -1" />
+                        </button>
+                        <button onClick={togglePlayPause}>
+                            <IconWithTooltip
+                                icon={isPlaying ? <MdPause /> : <MdPlayArrow />}
+                                text={isPlaying ? "Pause" : "Play"} />
+                        </button>
+                        <button onClick={() => seekTime(1)}>
+                            <IconWithTooltip icon={<MdKeyboardArrowRight />} text="Forward +1" />
+                        </button>
+                        <button onClick={() => seekTime(5)}>
+                            <IconWithTooltip icon={<MdKeyboardDoubleArrowRight />} text="Forward +5" />
+                        </button>
+                    </div>
+                    <div className='space-x-4 order-3 w-36 flex justify-end '>
+                        <button onClick={toggleFullScreen}>
+                            <IconWithTooltip icon={<MdFullscreen />} text="Full Screen" />
+                        </button>
+                        <button onClick={toggleSubTitle}>
+                            <IconWithTooltip icon={<MdOutlineSubtitles />} text="Subtitles" />
+                        </button>
+                        <button onClick={() => { swapScreenfunc(1) }}>
+                            <IconWithTooltip icon={<MdFilter1 />} text="Big Youtube" />
+                        </button>
+                        <button onClick={() => { swapScreenfunc(2) }}>
+                            <IconWithTooltip icon={<MdFilter2 />} text="big Twitch" />
+                        </button>
+                        <button onClick={() => { swapScreenfunc(3) }}>
+                            <IconWithTooltip icon={<MdFilter3 />} text="Side by Side" />
+                        </button>
+                    </div>
                 </div>
 
-                <div className='text-xl lg:text-3xl space-x-4 lg:order-2'>
-                    <button onClick={() => seekTime(-5)}>
-                        <IconWithTooltip icon={<MdKeyboardDoubleArrowLeft />} text="Rewind -5" />
-                    </button>
-                    <button onClick={() => seekTime(-1)}>
-                        <IconWithTooltip icon={<MdKeyboardArrowLeft />} text="Rewind -1" />
-                    </button>
-                    <button onClick={togglePlayPause}>
-                        <IconWithTooltip
-                            icon={isPlaying ? <MdPause /> : <MdPlayArrow />}
-                            text={isPlaying ? "Pause" : "Play"} />
-                    </button>
-                    <button onClick={() => seekTime(1)}>
-                        <IconWithTooltip icon={<MdKeyboardArrowRight />} text="Forward +1" />
-                    </button>
-                    <button onClick={() => seekTime(5)}>
-                        <IconWithTooltip icon={<MdKeyboardDoubleArrowRight />} text="Forward +5" />
-                    </button>
+                <div className='w-full h-1/2 overflow-hidden shadow-inner shadow-black bg-slate-900 opacity-60 flex justify-around '>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500 animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
+                    <div className='h-full w-2  bg-gradient-to-t from-purple-700 to-purple-500  animate-block'></div>
                 </div>
-                <div className='space-x-4 order-3 w-36 flex justify-end '>
-                    <button onClick={toggleFullScreen}>
-                        <IconWithTooltip icon={<MdFullscreen />} text="Full Screen" />
-                    </button>
-                    <button onClick={toggleSubTitle}>
-                        <IconWithTooltip icon={<MdOutlineSubtitles />} text="Subtitles" />
-                    </button>
-                    <button onClick={() => { swapScreenfunc(1) }}>
-                        <IconWithTooltip icon={<MdFilter1 />} text="Side by side" />
-                    </button>
-                    <button onClick={() => { swapScreenfunc(2) }}>
-                        <IconWithTooltip icon={<MdFilter2 />} text="big youtube" />
-                    </button>
-                    <button onClick={() => { swapScreenfunc(3) }}>
-                        <IconWithTooltip icon={<MdFilter3 />} text="big twitch" />
-                    </button>
-                </div>
+
             </div>
 
             {/* Live da Twitch */}
