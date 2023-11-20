@@ -230,6 +230,8 @@ export default function Tabela() {
 
     return (
         <main className="flex flex-col lg:flex-row lg:w-screen lg:h-screen">
+
+            {/* Classificação 1° ao 10° */}
             <section className=" h-fit lg:h-full lg:w-1/6 overflow-hidden">
                 <ul className="list-none h-full flex flex-col lg:pl-6 p-2 lg:justify-between bg-zinc-700 space-y-4 lg:space-y-0">
                     {teamsData.map((team, index) => (
@@ -253,6 +255,8 @@ export default function Tabela() {
             </section>
 
             <section className=" gap-3 w-full lg:w-5/6 ">
+
+                 {/* Datas Partidas */}
                 <div className="w-full overflow-x-scroll h-1/2 flex  p-2" id="matches">
                     <div className=" h-full flex items-center  lg:items-start space-y-4 lg:space-y-0 flex-col lg:flex-row text-white lg:space-x-4">
                         {MatchesData.map((match, matchIndex) => (
@@ -281,6 +285,7 @@ export default function Tabela() {
                     </div>
                 </div>
 
+                {/* Notícias */}
                 <div className=" flex flex-col w-full h-1/2 p-2  text-white bg-zinc-950 overflow-auto" id="news">
                     <h1 className="text-2xl text-white font-bold mb-1">Notícias</h1>
                     <div className="h-full flex w-fit space-x-6">

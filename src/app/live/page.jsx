@@ -119,7 +119,7 @@ export default function Live() {
                     ytScreen: ' col-start-1 row-start-1 col-span-6 row-span-6',
                     twScreen: ' col-start-7 row-start-1 col-span-6 row-span-6 ',
                     third: ' col-start-7 row-start-7 row-span-3 col-span-6',
-                    controls: ' row-start-7 col-start-1 col-span-6 row-span-3',
+                    controls: ' row-start-7 col-start-1 col-span-6 row-span-6',
                 })
                 break
         }
@@ -130,11 +130,11 @@ export default function Live() {
         <main className="w-full flex flex-wrap justify-center lg:p-2 lg:gap-2 lg:h-screen lg:grid lg:grid-cols-12 lg:grid-rows-10 lg:pl-4">
 
             {/* Live do Youtube */}
-            <div className={"w-full relative max-w-sm lg:max-w-none lg:rounded-md " + swapScreen.ytScreen} >
-                <div className='absolute top-0 left-0 w-full  pointer-events-none aspect-video z-10 rounded-md' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
+            <div className={"w-full relative max-w-sm lg:max-w-none lg:rounded-sm " + swapScreen.ytScreen} >
+                <div className='absolute top-0 left-0 w-full  pointer-events-none aspect-video z-10 rounded-sm' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                 {
                     liveId ?
-                        <div className='w-full relative lg:rounded-md aspect-video overflow-hidden'>
+                        <div className='w-full relative lg:rounded-sm aspect-video overflow-hidden'>
 
                             <YouTube iframeClassName='w-full h-full aspect-video -z-10' videoId={liveId} opts={opts} onReady={onReady} />
                         </div>
@@ -220,17 +220,17 @@ export default function Live() {
             </div>
 
             {/* Live da Twitch */}
-            <div className={"w-full relative max-w-sm lg:max-w-none overflow-hidden lg:rounded-md" + swapScreen.twScreen}>
-                <div className='absolute top-0 left-0 rounded-md w-full pointer-events-none aspect-video z-10' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
+            <div className={"w-full relative max-w-sm lg:max-w-none overflow-hidden lg:rounded-sm" + swapScreen.twScreen}>
+                <div className='absolute top-0 left-0 rounded-sm w-full pointer-events-none aspect-video z-10' style={{ boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.8)' }}></div>
                 <iframe
-                    className="w-full aspect-video relative lg:rounded-md "
+                    className="w-full aspect-video relative lg:rounded-sm "
                     src="https://player.twitch.tv/?channel=patopapao&amp;enableExtensions=false&amp;parent=twitch.tv&amp;quality=auto&amp;volume=1&amp;parent=keyd-watch.vercel.app" type="text/html" allowFullScreen
                 >
                 </iframe>
             </div>
 
             {/* 3° tela */}
-            < div className={"w-full max-w-sm min-h-[500px] lg:min-h-0 lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 lg:rounded-md overflow-y-auto" + swapScreen.third}>
+            < div className={"w-full max-w-sm min-h-[500px] lg:min-h-0 lg:max-w-none col-start-10 col-span-3 row-start-4 row-span-7 lg:rounded-sm overflow-y-auto" + swapScreen.third}>
                 {acompanhamento === 'twitchChat' && (
                     <iframe
                         className='w-full h-full lg:min-h-0'
